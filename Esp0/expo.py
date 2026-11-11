@@ -10,6 +10,7 @@ dati = np.array([560, 100, 1230, 200, 550, 740, 1730, 530, 1020, 930, 470, 1330,
 2200, 1170, 870, 540, 1470, 1950, 20, 290, 340, 290])  # dati veri
 
 N = len(dati)
+print(N)
 mu = np.mean(dati)  # media campionaria (stima del parametro di scala beta)
 std = np.std(dati, ddof=1)
 

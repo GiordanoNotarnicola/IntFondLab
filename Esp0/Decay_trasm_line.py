@@ -41,7 +41,7 @@ plt.errorbar(t, y, yerr=err, fmt=".", color="midnightblue", ecolor="gray", capsi
 plt.plot([], [], ' ', label=f"$A_0$ = {popt[0]:.1f} $\pm$ {perr[0]:.1f} mV\n "+r"$\tau$"+f" = {popt[1]:.1f} $\pm$ {perr[1]:.1f} ns\n$\chi^2$ = {chisq:.2f} (df = {df})\np-value = {p_value:.3f}")
 
 # Personalizzazione di layout, titoli ed etichette ingrandite
-plt.title("Decadimento dell'Ampiezza Picco-Picco", fontsize=14, fontweight="bold", pad=15)
+#plt.title("Decadimento dell'Ampiezza Picco-Picco", fontsize=14, fontweight="bold", pad=15)
 plt.xlabel(r"Tempo $t$ [ns]", fontsize=12, fontweight="bold")
 plt.ylabel(r"Ampiezza Picco-Picco [mV]", fontsize=12, fontweight="bold")
 

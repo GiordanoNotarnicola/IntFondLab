@@ -44,7 +44,7 @@ def fit(k, a, mu):
 popt, pcov = curve_fit(fit, bin_center, counts, p0=[1, mu], sigma=err)
 print(popt, np.sqrt(pcov[1, 1]), np.sqrt(popt[1]))
 res = counts - fit(bin_center, *popt)
-chisq = np.sum((res / err)**2)
+chisq = np.sum((res / err)**2) 
 df=len(bin_center)-len(popt)
 p_value = chi2.sf(chisq, df)
 print(f"p-value = {p_value:.4f}")

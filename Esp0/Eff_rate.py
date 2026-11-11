@@ -23,7 +23,7 @@ plt.errorbar(v2, efficienza, yerr=eff_err, fmt=".", color="crimson", ecolor="gra
              elinewidth=1.5, capsize=4, markersize=6, label="Efficienza Sperimentale")
 
 # Personalizzazione di layout, titoli ed etichette ingrandite
-plt.title("Curva di Efficienza in Funzione del Voltaggio $V_2$", fontsize=14, fontweight="bold", pad=15)
+#plt.title("Curva di Efficienza in Funzione del Voltaggio $V_2$", fontsize=14, fontweight="bold", pad=15)
 plt.xlabel(r"Voltaggio $V_2$ [V]", fontsize=12, fontweight="bold")
 plt.ylabel(r"Efficienza ($\text{Triple} / \text{Doppie}$)", fontsize=12, fontweight="bold")
 
