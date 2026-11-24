@@ -303,12 +303,12 @@ void CosmicMC(int n,double exponent)
     // COSMIC RAY GENERATION AREA
     // Upper scintillator
     // --------------------------------------------------------
-
-    const double genXmin=0.00;
-    const double genXmax=0.40;
+    // sopra il rivelatore è 27 53
+    const double genXmin=0.09;//0.00
+    const double genXmax=0.36;//0.40
 
     const double genYmin=0.00;
-    const double genYmax=0.51;
+    const double genYmax=0.53;//0.51
 
     const double genZ=+0.;
 
@@ -323,7 +323,7 @@ void CosmicMC(int n,double exponent)
     const double lowerYmin=0.00;
     const double lowerYmax=0.51;
 
-    const double lowerZ=-0.425;
+    const double lowerZ=-0.08;//0.425
 
 
     // --------------------------------------------------------
@@ -340,12 +340,12 @@ void CosmicMC(int n,double exponent)
 
     // Common Y position
 
-    const double gridYmin=0.09;
+    const double gridYmin=0.10;
 
 
     // Upper face of the first level
 
-    const double gridZmax=-0.05;
+    const double gridZmax=-0.13;//0.05
 
 
     // Dimensions of each parallelepiped
