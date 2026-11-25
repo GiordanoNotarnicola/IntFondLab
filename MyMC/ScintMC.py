@@ -36,7 +36,6 @@ class Cristal:
         yout=np.minimum(y1, y2)
         z_enter = np.minimum(np.minimum(xin, yin), self.zup)
         z_exit = np.maximum(np.maximum(xout, yout), self.zdown)
-
         return z_enter, z_exit  
 
     def hit(self, ray):
@@ -48,9 +47,6 @@ class Cristal:
         dz=np.maximum(0., z_enter- z_exit)
         return dz/ray.costh
               
-
-
-
 class Ray:
 
     def __init__(self, x0, y0, costh, phi):
@@ -62,33 +58,40 @@ class Ray:
         self.tx=tanth*np.cos(self.phi)
         self.ty=tanth*np.sin(self.phi)
 
-
     def pos_at_z(self, z):
         x=self.x0+z*self.tx
         y=self.y0+z*self.ty
         return x,y
+    
 #sezione geometria detector da modificare a piacimento
-sizex=0.4
-sizey=0.4
-det1=Detector(0, 0.4, 0, 0.4, -0.2)
-det2=Cristal(0, 0.4, 0, 0.4, -0.2, -0.3)
-det2=Detector(0, 0.4, 0, 0.4, -0.4)
-n=10000000
+expo=200000
+sizex=0.53
+sizey=0.27
+detcen=Detector(0, 0.51, -0.09, 0.31, -0.08)
+cri1=Cristal(0.09, 0.47, 0.01, 0.115, -0.105, -0.21)
+cri2=Cristal(0.09, 0.47, 0.115, 0.22, -0.105, -0.21)
+cri3=Cristal(0.09, 0.47, 0.01, 0.115, -0.21, -0.315)
+cri4=Cristal(0.09, 0.47, 0.115, 0.22, -0.21, -0.315)
+cri5=Cristal(0.09, 0.47, 0.01, 0.115, -0.315, -0.42)
+cri6=Cristal(0.09, 0.47, 0.115, 0.22, -0.315, -0.42)
+detinf=Detector(0, 0.51, -0.09, 0.31, -0.505)
+n=1000000
 doppie=0
 triple=0
 
+t0=time.time()
 x0=sizex*np.random.random(n)
 y0=sizey*np.random.random(n)
-costh=np.random.random(n)
+costh=(np.random.random(n))**(1/(1+expo))
 phi=2*np.pi*np.random.random(n)
-t0=time.time()
 raggi=Ray(x0, y0, costh, phi)
-hit1=det1.hit(raggi)
-hit2=det2.hit(raggi)
+
+hit1=cri1.hit(raggi)
+hit2=cri3.hit(raggi)
 doppie=np.sum(hit1)
 triple=np.sum(hit1 & hit2)
 t1=time.time()
 
-print(f"efficienza è {(triple/doppie):.2f}, ci ho messo {(t1-t0):.2f}")
+print(f"efficienza è {(doppie/n):.2f}, {(doppie/triple):.2f}, ci ho messo {(t1-t0):.2f}")
 
 
